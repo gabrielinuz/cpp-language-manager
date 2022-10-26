@@ -8,7 +8,7 @@ g++ -shared -Wall -std=c++11 -fPIC -I./include/ LangReader.o LanguageManagerModu
 g++ -Wall -std=c++11 -ldl -I./include -I./include/vendors/cppset/ main.cpp -o ./app.bin 
 
 ## Borro código objeto
-# rm *.o;
+rm ./*.o
 
 ## Permisos de Ejecución para el binario
 chmod +x ./app.bin
