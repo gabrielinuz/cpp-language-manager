@@ -11,22 +11,40 @@
  */
 #include <LanguageManagerModule.hpp>
 
+/**
+ * @brief Construct a new Language Manager Module:: Language Manager Module object
+ * 
+ */
 LanguageManagerModule::LanguageManagerModule()
 {
     _language = "default";
     _languageFilePath = "./lang/"+_language+".lang";
 }
 
+/**
+ * @brief Destroy the Language Manager Module:: Language Manager Module object
+ * 
+ */
 LanguageManagerModule::~LanguageManagerModule()
 {
     delete _langReader;
 }
 
+/**
+ * @brief 
+ * 
+ * @param filePath 
+ */
 void LanguageManagerModule::setLanguageFilePath(string filePath) 
 {
     _languageFilePath = filePath;
 }
 
+/**
+ * @brief 
+ * 
+ * @param language 
+ */
 void LanguageManagerModule::setLanguage(string language) 
 {
     _language = language;
@@ -52,6 +70,11 @@ string LanguageManagerModule::translate(string key)
     return result;
 }
 
+/**
+ * @brief Get the Instance object
+ * 
+ * @return LanguageManagerModule* 
+ */
 LanguageManagerModule* getInstance() 
 {
     return new LanguageManagerModule();

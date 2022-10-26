@@ -1,10 +1,10 @@
 ::Compilo las librerías
-g++ -Wall -std=c++11 -I./include/ ./src/IniReader.cpp -o IniReader.o
-g++ -shared -Wall -std=c++11 -I./include/ ./src/LanguageManagerModule.cpp -o ./lib/LanguageManagerModule.so
-g++ -Wall -std=c++11 -I./include/ main.cpp -o main.o
+g++ -Wall -std=c++11 -I.\include\ -c .\src\LangReader.cpp
+g++ -Wall -std=c++11 -I.\include\ -c .\src\LanguageManagerModule.cpp
+g++ -shared -Wall -std=c++11 -I.\include\ LangReader.o LanguageManagerModule.o -o .\lib\LanguageManagerModule.dll
 
 :: Compilo el Binario
-g++ -Wall -std=c++11 -ldl -I./include -I./include/vendors/cppset IniReader.o main.o -o ./app.bin 
+g++ -Wall -std=c++11 -ldl -I.\include -I.\include\vendors\cppset\ main.cpp -o .\app.exe
 
 ::Borrar .o
 DEL .\*.o
