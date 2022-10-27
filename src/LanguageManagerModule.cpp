@@ -27,7 +27,6 @@ LanguageManagerModule::LanguageManagerModule()
  */
 LanguageManagerModule::~LanguageManagerModule()
 {
-    delete _langReader;
 }
 
 /**
@@ -66,7 +65,7 @@ string LanguageManagerModule::translate(string key)
     {
         result = "NULL TRANSLATION OF KEY: " + key + "!";
     } 
-    
+    delete _langReader;
     return result;
 }
 
