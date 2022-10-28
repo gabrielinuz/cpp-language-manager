@@ -17,6 +17,9 @@
  */
 LanguageManagerModule::LanguageManagerModule()
 {
+    #ifdef __DEBUG__
+        cout << "create LanguageManagerModule from shared library..." << endl;
+    #endif // __DEBUG__
     _language = "default";
     _languageFilePath = "./lang/"+_language+".lang";
 }
@@ -27,6 +30,9 @@ LanguageManagerModule::LanguageManagerModule()
  */
 LanguageManagerModule::~LanguageManagerModule()
 {
+    #ifdef __DEBUG__
+        cout << "delete LanguageManagerModule from shared library..." << endl;
+    #endif // __DEBUG__
 }
 
 /**

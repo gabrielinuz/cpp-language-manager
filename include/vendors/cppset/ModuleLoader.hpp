@@ -8,9 +8,9 @@
 #ifndef MODULE_LOADER_HPP
 #define MODULE_LOADER_HPP
 
-// #ifndef __DEBUG__
-//     #define __DEBUG__
-// #endif
+#ifndef __DEBUG__
+    #define __DEBUG__
+#endif
 
 #include <string>
 #include <iostream>

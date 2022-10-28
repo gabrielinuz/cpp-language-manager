@@ -12,6 +12,11 @@
 
 #ifndef LANGUAGE_MANAGER_MODULE_H
 #define LANGUAGE_MANAGER_MODULE_H
+
+#ifndef __DEBUG__
+    #define __DEBUG__
+#endif
+
 #include <iostream>
 #include <ILanguageManager.hpp>
 #include <LangReader.hpp>
