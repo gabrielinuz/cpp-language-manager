@@ -1,36 +1,22 @@
 #!/bin/bash
 
 ## Compilo código objeto
-##LangReader:
-g++ -Wall -std=c++11 -c ../src/LangReader.cpp -o LangReader.o -I../include
-g++ -Wall -std=c++11 -c LangReaderUnitTest.cpp -o LangReaderUnitTest.o \
--I../include -I../include/vendors/catch
+##LanguageManagerModule:
+g++ -Wall -std=c++11 -fPIC -I../include/ -c ../src/LangReader.cpp
+g++ -Wall -std=c++11 -fPIC -I../include/ -c ../src/LanguageManagerModule.cpp
+g++ -shared -Wall -std=c++11 -fPIC -I../include/ LangReader.o LanguageManagerModule.o -o ../lib/LanguageManagerModule.so
 
-##LanguageManager:
-# g++ -Wall -std=c++11 -c ../src/LanguageManager.cpp -o LanguageManager.o -I../include
-# g++ -Wall -std=c++11 -c LanguageManagerUnitTest.cpp -o LanguageManagerUnitTest.o \
-# -I../include -I../include/vendors/catch
 
 ## Compilo el Binario
-##LangReader:
-g++ -Wall -std=c++11 LangReader.o LangReaderUnitTest.o -o LangReaderUnitTest.bin
+g++ -Wall -std=c++11 -ldl LanguageManagerModuleUnitTest.cpp -o LanguageManagerModuleUnitTest.bin \
+-I../include -I../include/vendors/catch -I../include/vendors/cppset/
 
-##LanguageManager:
-# g++ -Wall -std=c++11 LanguageManager.o LanguageManagerUnitTest.o -o LanguageManagerUnitTest.bin
 
-## Permisos de Ejecución para el binario
-##LangReader:
-chmod +x ./LangReaderUnitTest.bin
-
-# ##LanguageManager:
-# chmod +x ./LanguageManagerUnitTest.bin
+# ##LanguageManagerModule:
+chmod +x ./LanguageManagerModuleUnitTest.bin
 
 ## Limpio los códigos objeto
 rm ./*.o
 
-## Ejecuto el binario:
-##LangReader:
-./LangReaderUnitTest.bin
-
-# ##LanguageManager:
-# ./LanguageManagerUnitTest.bin
+# ##LanguageManagerModule:
+./LanguageManagerModuleUnitTest.bin

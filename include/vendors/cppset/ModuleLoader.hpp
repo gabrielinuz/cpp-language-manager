@@ -39,7 +39,13 @@ class ModuleLoader
 
             libraryLoader = new SharedLibraryLoader;
         }
-
+        /**
+         * @brief Construct a new Module Loader object
+         * with parameter const char* to able the syntax
+         * ModuleLoader ml = "./path/to/library" 
+         * 
+         * @param filePath 
+         */
         ModuleLoader(const char* filePath)
         {
             #ifdef __DEBUG__
@@ -80,8 +86,7 @@ class ModuleLoader
                 if( libFunctionPointer )
                 {
                     obj = libFunctionPointer();
-                    // @ToDo:
-                    if( dynamic_cast<ObjectType> (obj) == nullptr ) //TO TEST
+                    if( dynamic_cast<ObjectType> (obj) == nullptr )
                     {
                         showError("Error: The return type of the function is not the same as the one requested!");
                     } 
@@ -101,7 +106,5 @@ class ModuleLoader
 };
 
 typedef ModuleLoader import;
-
-// export ModuleLoader;
 
 #endif // MODULE_LOADER_HPP

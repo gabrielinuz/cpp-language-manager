@@ -1,12 +1,16 @@
 :: Compilo código objeto
-g++ -Wall -std=c++11 -c .\src\AudioPlayer.cpp -o AudioPlayer.o -I.\include
-g++ -Wall -std=c++11 -c AudioPlayerUnitTest.cpp -o AudioPlayerUnitTest.o -I..\include -I..\include\vendors\catch
+::LanguageManagerModule:
+g++ -Wall -std=c++11 -I..\include\ -c ..\src\LangReader.cpp
+g++ -Wall -std=c++11 -I..\include\ -c ..\src\LanguageManagerModule.cpp
+g++ -shared -Wall -std=c++11 -I..\include\ LangReader.o LanguageManagerModule.o -o ..\lib\LanguageManagerModule.dll
+
 
 :: Compilo el Binario
-g++ -Wall -std=c++11 AudioPlayer.o AudioPlayerUnitTest.o -o AudioPlayerUnitTest.exe
+g++ -Wall -std=c++11 LanguageManagerModuleUnitTest.cpp -o LanguageManagerModuleUnitTest.exe -I..\include -I..\include\vendors\catch -I..\include\vendors\cppset\
+
 
 :: Limpio los códigos objeto
 DEL .\*.o
 
-:: Ejecuto el binario:
-AudioPlayerUnitTest.exe
+::LanguageManagerModule:
+.\LanguageManagerModuleUnitTest.exe
